@@ -1,0 +1,55 @@
+{
+  "name": "@adobe/helix-qr-code",
+  "version": "0.0.1",
+  "description": "Helix QR Code utilities",
+  "main": "src/index.js",
+  "scripts": {
+    "test": " nyc --reporter=text --reporter=lcov --check-coverage --branches 100 --statements 100 --lines 100 mocha",
+    "test-ci": "nyc --reporter=text --reporter=lcov --check-coverage --branches 100 --statements 100 --lines 100 mocha --reporter xunit --reporter-options output=./junit/test-results.xml && codecov",
+    "lint": "./node_modules/.bin/eslint .",
+    "semantic-release": "semantic-release",
+    "docs": "npx jsdoc2md -c .jsdoc.json --files 'src/*.js'  > docs/API.md",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adobe/helix-qr-code"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/adobe/helix-qr-code/issues"
+  },
+  "homepage": "https://github.com/adobe/helix-qr-code#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@adobe/eslint-config-helix": "1.1.0",
+    "@semantic-release/changelog": "5.0.1",
+    "@semantic-release/git": "9.0.0",
+    "@semantic-release/npm": "7.0.5",
+    "ajv": "6.12.0",
+    "codecov": "3.6.5",
+    "commitizen": "4.0.3",
+    "cz-conventional-changelog": "3.1.0",
+    "eslint": "6.8.0",
+    "eslint-plugin-header": "3.0.0",
+    "eslint-plugin-import": "2.20.2",
+    "jsdoc-to-markdown": "5.0.3",
+    "junit-report-builder": "1.3.3",
+    "lint-staged": "10.1.2",
+    "mocha": "7.1.1",
+    "nyc": "15.0.1",
+    "semantic-release": "17.0.4"
+  },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npx lint-staged"
+    }
+  }
+}
