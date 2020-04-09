@@ -8,6 +8,7 @@
 [![GitHub license](https://img.shields.io/github/license/adobe/helix-qr-code.svg)](https://github.com/adobe/helix-qr-code/blob/master/LICENSE.txt)
 [![GitHub issues](https://img.shields.io/github/issues/adobe/helix-qr-code.svg)](https://github.com/adobe/helix-qr-code/issues)
 [![LGTM Code Quality Grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/adobe/helix-qr-code.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/adobe/helix-qr-code)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 ## Installation
@@ -18,7 +19,17 @@ $ npm install @adobe/helix-qr-code
 
 ## Usage
 
-See the [API documentation](docs/API.md).
+Decode a QR code from the raw image file data:
+
+```js
+const fs = require('fs');
+const qr = require('@adobe/helix-qr-code');
+
+const bytes = fs.readFileSync('image_with_qr_code.jpg');
+qr.decodeFromBuffer(bytes).then((decoded) => console.log(decoded));
+```
+
+See the [API documentation](docs/API.md) for more information.
 
 ## Development
 
