@@ -1,3 +1,10 @@
+# 1.0.0 (2020-04-09)
+
+
+### Features
+
+* initial version ([3f1a501](https://github.com/adobe/helix-qr-code/commit/3f1a5017359fee6834663fa93afe01b5283c3f16))
+
 ## [1.4.3](https://github.com/adobe/helix-library/compare/v1.4.2...v1.4.3) (2020-04-06)
 
 
