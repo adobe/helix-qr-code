@@ -29,6 +29,23 @@ const bytes = fs.readFileSync('image_with_qr_code.jpg');
 qr.decodeFromBuffer(bytes).then((decoded) => console.log(decoded));
 ```
 
+Encode text as a QR code (raw PNG file data output):
+
+```js
+const fs = require('fs');
+const qr = require('@adobe/helix-qr-code');
+
+qr.encodeToBuffer('text to be encoded').then((buf) => fs.writeFileSync('qr_code.png', buf)));
+```
+
+Encode text as a QR code (SVG output):
+
+```js
+const qr = require('@adobe/helix-qr-code');
+
+qr.encodeToSVG('text to be encoded').then((svg) => console.log(svg)));
+```
+
 See the [API documentation](docs/API.md) for more information.
 
 ## Development
