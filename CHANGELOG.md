@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/adobe/helix-qr-code/compare/v1.0.0...v1.1.0) (2020-04-26)
+
+
+### Features
+
+* generate QR code (svg, png, data url) ([cf2db8b](https://github.com/adobe/helix-qr-code/commit/cf2db8ba7641cd0eb3e35ef448083b13c770caaa)), closes [#5](https://github.com/adobe/helix-qr-code/issues/5)
+
 # 1.0.0 (2020-04-09)
 
 
