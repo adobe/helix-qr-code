@@ -46,6 +46,14 @@ const qr = require('@adobe/helix-qr-code');
 qr.encodeToSVG('text to be encoded').then((svg) => console.log(svg)));
 ```
 
+Encode text as a QR code (Data URL output):
+
+```js
+const qr = require('@adobe/helix-qr-code');
+
+qr.encodeToDataURL('text to be encoded').then((dataURL) => console.log(dataURL)));
+```
+
 See the [API documentation](docs/API.md) for more information.
 
 ## Development
