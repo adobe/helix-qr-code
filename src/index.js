@@ -14,7 +14,7 @@
 
 const Jimp = require('jimp');
 const jsQR = require('jsqr');
-// const QRCode = require('qrcode');
+const QRCode = require('qrcode');
 
 /**
  * Decodes the QR code included in the specified image.
@@ -22,8 +22,8 @@ const jsQR = require('jsqr');
  * @param {Buffer} buf Raw bytes of an image
  * @param {boolean} canOverwriteBuffer=true Specifies whether the buffer
  *                  can be overwritten for performance improvements
- * @returns {string} the decoded QR code found on the image or `null`
- *                   if a QR code couldn't be detected.
+ * @returns {Promise<string>} the decoded QR code found on the image or `null`
+ *                            if a QR code couldn't be detected.
  * @throws {TypeError} If `buf` is not a Buffer
  * @throws {Error} If another error occurred
  */
@@ -51,8 +51,8 @@ async function decodeFromBuffer(buf, canOverwriteBuffer = true) {
  * @param {number} img.width width in pixels
  * @param {boolean} canOverwriteBuffer=true Specifies whether the buffer
  *                  can be overwritten for performance improvements
- * @returns {string} the decoded QR code found on the image or `null`
- *                   if a QR code couldn't be detected.
+ * @returns {Promise<string>} the decoded QR code found on the image or `null`
+ *                            if a QR code couldn't be detected.
  * @throws {TypeError} If `buf` is not a Buffer
  * @throws {Error} If another error occurred
  */
@@ -72,7 +72,60 @@ async function decodeFromImageData(img, canOverwriteBuffer = true) {
   });
 }
 
+function applyDefaultOptions(options, overrides) {
+  const opts = options || {};
+  const defaults = {
+    scale: 2,
+    margin: 2,
+    errorCorrectionLevel: 'L',
+    color: {
+      dark: '#000000ff', // black
+      light: '#ffffffff', // white
+    },
+  };
+  return { ...defaults, ...opts, ...overrides };
+}
+
+/**
+ * Encodes a string as a QR Code (Output: Data URL of raw PNG file data).
+ *
+ * @param {string} text to be encoded text
+ * @param {object} [options] optional, see https://github.com/soldair/node-qrcode#qr-code-options
+ * @returns {Promise<string>} Data URL of raw PNG file data
+ * @throws {Error} If an error occurred
+ */
+async function encodeToDataURL(text, options) {
+  return QRCode.toDataURL(text, applyDefaultOptions(options, { type: 'png' }));
+}
+
+/**
+ * Encodes a string as a QR Code (Output: SVG).
+ *
+ * @param {string} text to be encoded text
+ * @param {object} [options] optional, see https://github.com/soldair/node-qrcode#qr-code-options
+ * @returns {Promise<string>} SVG of generated QR Code
+ * @throws {Error} If an error occurred
+ */
+async function encodeToSVG(text, options) {
+  return QRCode.toString(text, applyDefaultOptions(options, { type: 'svg' }));
+}
+
+/**
+ * Encodes a string as a QR Code (Output: raw PNG file data).
+ *
+ * @param {string} text to be encoded text
+ * @param {object} [options] optional, see https://github.com/soldair/node-qrcode#qr-code-options
+ * @returns {Promise<Buffer>} raw PNG file data of the generated QR Code
+ * @throws {Error} If an error occurred
+ */
+async function encodeToBuffer(text, options) {
+  return QRCode.toBuffer(text, applyDefaultOptions(options, { type: 'png' }));
+}
+
 module.exports = {
   decodeFromBuffer,
   decodeFromImageData,
+  encodeToDataURL,
+  encodeToSVG,
+  encodeToBuffer,
 };
