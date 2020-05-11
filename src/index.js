@@ -20,21 +20,19 @@ const QRCode = require('qrcode');
  * Decodes the QR code included in the specified image.
  *
  * @param {Buffer} buf Raw bytes of an image
- * @param {boolean} canOverwriteBuffer=true Specifies whether the buffer
- *                  can be overwritten for performance improvements
  * @returns {Promise<string>} the decoded QR code found on the image or `null`
  *                            if a QR code couldn't be detected.
  * @throws {TypeError} If `buf` is not a Buffer
  * @throws {Error} If another error occurred
  */
-async function decodeFromBuffer(buf, canOverwriteBuffer = true) {
+async function decodeFromBuffer(buf) {
   if (!Buffer.isBuffer(buf)) {
     throw new TypeError('argument must be a Buffer');
   }
   const { bitmap: { data, height, width } } = await Jimp.read(buf);
   return jsQR(data, width, height, {
     inversionAttempts: 'dontInvert',
-    canOverwriteImage: canOverwriteBuffer,
+    canOverwriteImage: true,
   });
 }
 
