@@ -12,7 +12,7 @@
 
 'use strict';
 
-const Jimp = require('jimp');
+const sharp = require('sharp');
 const jsQR = require('jsqr');
 const QRCode = require('qrcode');
 
@@ -29,7 +29,10 @@ async function decodeFromBuffer(buf) {
   if (!Buffer.isBuffer(buf)) {
     throw new TypeError('argument must be a Buffer');
   }
-  const { bitmap: { data, height, width } } = await Jimp.read(buf);
+  const { data, info: { width, height } } = await sharp(buf)
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
   return jsQR(data, width, height, {
     inversionAttempts: 'dontInvert',
     canOverwriteImage: true,

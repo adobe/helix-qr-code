@@ -22,9 +22,9 @@
   },
   "homepage": "https://github.com/adobe/helix-qr-code#readme",
   "dependencies": {
-    "jimp": "^0.10.1",
     "jsqr": "^1.2.0",
-    "qrcode": "^1.4.4"
+    "qrcode": "^1.4.4",
+    "sharp": "^0.25.2"
   },
   "devDependencies": {
     "@adobe/eslint-config-helix": "1.1.0",

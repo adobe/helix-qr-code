@@ -17,8 +17,8 @@
 const assert = require('assert');
 const path = require('path');
 
-const Jimp = require('jimp');
 const fse = require('fs-extra');
+const sharp = require('sharp');
 
 const {
   decodeFromBuffer,
@@ -59,8 +59,11 @@ describe('QR code de- & encoding Tests', () => {
   it('decodeFromImageData decodes QR Code from ImageData', async () => {
     const EXPECTED = 'https://www.youtube.com/watch?v=85UKLsvQEIA';
 
-    const img = await Jimp.read(path.resolve(__dirname, 'fixtures', 'youtube_qr.jpg'));
-    const result = await decodeFromImageData(img.bitmap);
+    const { data, info: { width, height } } = await sharp(path.resolve(__dirname, 'fixtures', 'youtube_qr.jpg'))
+      .ensureAlpha()
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+    const result = await decodeFromImageData({ data, height, width });
     assert.equal(result.data, EXPECTED);
   });
 
