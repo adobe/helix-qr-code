@@ -12,9 +12,9 @@
 
 'use strict';
 
-const sharp = require('sharp');
 const jsQR = require('jsqr');
 const QRCode = require('qrcode');
+const sharp = require('sharp');
 
 /**
  * Decodes the QR code included in the specified image.
