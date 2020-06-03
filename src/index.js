@@ -17,11 +17,34 @@ const jsQR = require('jsqr');
 const QRCode = require('qrcode');
 
 /**
+ * @typedef Point
+ * @type {object}
+ * @property {number} x - x coordinate
+ * @property {number} y - y coordinate.
+ */
+
+/**
+ * @typedef Location
+ * @type {object}
+ * @property {Point} topRightCorner - top right corner of QR code image
+ * @property {Point} topLeftCorner - top left corner of QR code image
+ * @property {Point} bottomRightCorner - bottom right corner of QR code image
+ * @property {Point} bottomLeftCorner - bottom left corner of QR code image
+ */
+
+/**
+ * @typedef DecodeResult
+ * @type {object}
+ * @property {string} data - the decoded QR code.
+ * @property {Location} location - location of the QR code within the image
+ */
+
+/**
  * Decodes the QR code included in the specified image.
  *
  * @param {Buffer} buf Raw bytes of an image
- * @returns {Promise<string>} the decoded QR code found on the image or `null`
- *                            if a QR code couldn't be detected.
+ * @returns {Promise<DecodeResult>} the QR code found on the image or `null`
+ *                                  if a QR code couldn't be detected.
  * @throws {TypeError} If `buf` is not a Buffer
  * @throws {Error} If another error occurred
  */
@@ -49,8 +72,8 @@ async function decodeFromBuffer(buf) {
  * @param {number} img.width width in pixels
  * @param {boolean} canOverwriteBuffer=true Specifies whether the buffer
  *                  can be overwritten for performance improvements
- * @returns {Promise<string>} the decoded QR code found on the image or `null`
- *                            if a QR code couldn't be detected.
+ * @returns {Promise<DecodeResult>} the QR code found on the image or `null`
+ *                                  if a QR code couldn't be detected.
  * @throws {TypeError} If `buf` is not a Buffer
  * @throws {Error} If another error occurred
  */
