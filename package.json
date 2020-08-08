@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/adobe/helix-qr-code#readme",
   "dependencies": {
-    "jimp": "^0.14.0",
+    "jimp": "^0.16.0",
     "jsqr": "^1.2.0",
     "qrcode": "^1.4.4"
   },
