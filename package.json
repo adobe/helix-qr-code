@@ -1,6 +1,6 @@
 {
   "name": "@adobe/helix-qr-code",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Helix QR Code utilities",
   "main": "src/index.js",
   "scripts": {

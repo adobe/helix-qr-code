@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/adobe/helix-qr-code/compare/v1.1.0...v1.1.1) (2020-08-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jimp to ^0.16.0 ([b2f19b4](https://github.com/adobe/helix-qr-code/commit/b2f19b48026e7f6ac64936e96b601a90458323f0))
+
 # [1.1.0](https://github.com/adobe/helix-qr-code/compare/v1.0.0...v1.1.0) (2020-04-26)
 
 
