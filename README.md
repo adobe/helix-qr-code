@@ -5,7 +5,7 @@
 ## Status
 [![codecov](https://img.shields.io/codecov/c/github/adobe/helix-qr-code.svg)](https://codecov.io/gh/adobe/helix-qr-code)
 [![CircleCI](https://img.shields.io/circleci/project/github/adobe/helix-qr-code.svg)](https://circleci.com/gh/adobe/helix-qr-code)
-[![GitHub license](https://img.shields.io/github/license/adobe/helix-qr-code.svg)](https://github.com/adobe/helix-qr-code/blob/master/LICENSE.txt)
+[![GitHub license](https://img.shields.io/github/license/adobe/helix-qr-code.svg)](https://github.com/adobe/helix-qr-code/blob/main/LICENSE.txt)
 [![GitHub issues](https://img.shields.io/github/issues/adobe/helix-qr-code.svg)](https://github.com/adobe/helix-qr-code/issues)
 [![LGTM Code Quality Grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/adobe/helix-qr-code.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/adobe/helix-qr-code)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
