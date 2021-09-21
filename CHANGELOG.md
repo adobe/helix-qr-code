@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/adobe/helix-qr-code/compare/v1.1.1...v1.1.2) (2021-09-21)
+
+
+### Bug Fixes
+
+* use node 14 ([5b6689a](https://github.com/adobe/helix-qr-code/commit/5b6689ae268b057ae218b48b2b236f1d0b3a979a))
+
 ## [1.1.1](https://github.com/adobe/helix-qr-code/compare/v1.1.0...v1.1.1) (2020-08-30)
 
 
